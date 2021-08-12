@@ -18,7 +18,7 @@ function ToDoPractice() {
         else{
             alert("Enter All Details First")
         }
-        const promise=axios.post('http://localhost:4001/events',
+        const promise=axios.post('http://localhost:4000/events',
         { name:events,id:new Date().getTime().toString() ,date:date,time:time},
             {       
             headers:{['contect-type']:'application/json' }
@@ -30,7 +30,14 @@ function ToDoPractice() {
         promise.catch(e=>console.log(e))
         //console.log(b);
     }
+const getEvents=()=>{
+    alert('admnkjasnd')
+    axios.get('http://localhost:4000/events').then(myevent=>{
+        console.log(myevent)
+        addList([...list,myevent['data']])
+    })
 
+}
     const removeEvent = (id) => {
         let eventList = list.filter(x => x.id !== id)
         let [deleted]=list.filter(x => x.id === id)
@@ -64,7 +71,7 @@ function ToDoPractice() {
                         <input type='date' value={date}  id='date' onChange={(e) => { setDate(e.target.value) }}></input>
 
                     </div>
-                    <button type='submit' className='btn'>Add Events</button>
+                    <button type='submit' className='btn'>Add Events</button><button type='button' className='btn' onClick={getEvents}>Refresh</button>
 
                 </form>
                 <h3 style={{border:'2px solid green'}}>To Do Task List </h3>

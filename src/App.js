@@ -7,8 +7,8 @@ function App() {
       <header className="App-header">
       <h1>To Do List Application</h1>
        
-        <ToDo/>
-        {/* <ToDoPractice/> */}
+        {/* <ToDo/> */}
+        <ToDoPractice/>
       </header>
     </div>
   );
