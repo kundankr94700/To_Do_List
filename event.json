@@ -1,17 +1,4 @@
 {
-  "events": [
-    {
-      "name": "Kundan Kumar Singh",
-      "date": "",
-      "time": " ",
-      "id": 1
-    },
-
-    {
-      "name": "fds",
-      "id": "1628756832471",
-      "date": "2021-08-04",
-      "time": "13:58"
-    }
-  ]
+  "events": [],
+  "completedevents": []
 }
