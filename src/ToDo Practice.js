@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
-function ToDo() {
+function ToDoPractice() {
     const [events, setEvents] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
     const [list, addList] = useState([])
     const [completedlist, addcompletedList] = useState([])
+
 
     const handler = (e) => {
         e.preventDefault();
@@ -16,6 +18,17 @@ function ToDo() {
         else{
             alert("Enter All Details First")
         }
+        const promise=axios.post('http://localhost:4001/events',
+        { name:events,id:new Date().getTime().toString() ,date:date,time:time},
+            {       
+            headers:{['contect-type']:'application/json' }
+        }
+        )
+        promise.then(response=>{
+            console.log(response);
+        })
+        promise.catch(e=>console.log(e))
+        //console.log(b);
     }
 
     const removeEvent = (id) => {
@@ -89,4 +102,4 @@ function ToDo() {
     )
 }
 
-export default ToDo
+export default ToDoPractice
